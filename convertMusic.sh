@@ -2,7 +2,7 @@
 
 flacFiles="*.flac"
 outputDir="MP3OUT"
-
+cur="$(pwd)"
 
 if ! [ -x "$(command -v ffmpeg)" ]; then
     echo "No ffmpeg"
@@ -28,6 +28,6 @@ mkdir "$outputDir"
 #     ffmpeg -i "$(pwd)/$a" -qscale:a 0 "$out"
 # done
 
-parallel 'ffmpeg -i $(pwd)/{1} -qscale:a 0 $(pwd)/{2}/{1.}.mp3' ::: $flacFiles ::: $outputDir
+parallel --jobs 5 ffmpeg -hide_banner -i "{2}/{1}" -qscale:a 0 "{2}/{3}/{1.}.mp3" ::: $flacFiles ::: "$cur" ::: $outputDir
 
 exit 0
