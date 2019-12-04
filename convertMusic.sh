@@ -26,7 +26,6 @@ mkdir "$outputDir"
 #     ffmpeg -i "$(pwd)/$a" -qscale:a 0 "$out"
 # done
 
-parallel 'ffmpeg -i $(pwd)/{1} -qscale:a 0 $(pwd)/{2}/{1.}.mp3' ::: *.flac ::: $outputDir
-
+parallel 'ffmpeg -i $(pwd)/{1} -qscale:a 0 $(pwd)/{2}/{1.}.mp3' ::: $flacFiles ::: $outputDir
 
 exit 0
