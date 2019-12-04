@@ -6,11 +6,13 @@ outputDir="MP3OUT"
 
 if ! [ -x "$(command -v ffmpeg)" ]; then
     echo "No ffmpeg"
+    echo "Use suo apt install ffmpeg"
     exit 1
 fi
 
 if ! [ -x "$(command -v parallel)" ]; then
-    echo "No ffmpeg"
+    echo "No gnu parallel"
+    echo "Use suo apt install parallel"
     exit 1
 fi
 
