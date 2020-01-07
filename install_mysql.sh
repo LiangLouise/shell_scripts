@@ -35,5 +35,9 @@ if [ $SECURE_MYSQL -ne 0 ] || [ -w $MYSQL_CNF ] then
 	exit 1
 fi
 
+# Config the host binding, port
+# Config firewall
+# Set root password
+# Restart service
 
 
